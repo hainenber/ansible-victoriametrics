@@ -1,2 +1,0 @@
-[all]
-vm-single ansible_host=x.x.x.x
