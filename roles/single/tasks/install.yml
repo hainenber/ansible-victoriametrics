@@ -71,7 +71,7 @@
         - not victoriametrics_is_installed.stat.exists or
           victoriametrics_version not in victoriametrics_current_version.stdout
 
-    - name: Upload VictoriaMetrics release binary
+    - name: Transfer VictoriaMetrics release binary to remote host
       copy:
         src: /tmp/vic-single/victoria-metrics-prod
         dest: /usr/local/bin
@@ -94,7 +94,7 @@
       when:
         - archive_downloaded is changed
 
-    - name: Upload VictoriaMetrics release binaries
+    - name: Transfer VictoriaMetrics utils binaries to remote host
       copy:
         src: "/tmp/vic-utils/{{ item }}"
         dest: /usr/local/bin
