@@ -7,3 +7,11 @@ go_arch_map:
   armv6l: 'arm6vl'
 
 go_arch: "{{ go_arch_map[ansible_architecture] | default(ansible_architecture) }}"
+
+victoriametrics_service_args:
+  storageDataPath: "{{ victoriametrics_data_dir }}"
+  selfScrapeInterval: "{{ victoriametrics_self_scrape_interval }}"
+  retentionPeriod: "1d"
+  maxConcurrentInserts: 32
+  "search.maxUniqueTimeseries": "{{ victoriametrics_search_max_unique_timeseries }}"
+
